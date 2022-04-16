@@ -21,4 +21,80 @@ public class Bishop extends ChessPiece{
         s.addAll(movingDiagonallyBackAndRight(this));
         return s;
     }
+
+    private ArrayList<String> movingDiagonallyForwardAndLeft(ChessPiece piece){
+        ArrayList<String> s = new ArrayList<>();
+        int c = col-1;
+        int r = row+1;
+        while (true){
+            if(label.getBoard().checkChess(c, r)) {
+                s.add("" + r + " " + c);
+                c --;
+                r ++;
+            } else
+            if(label.getBoard().checkChessColor(c, r,piece)) {
+                s.add(""+r+" "+c);
+                break;
+            } else break;
+        }
+
+        return s;
+    }
+
+    private ArrayList<String> movingDiagonallyForwardAndRight(ChessPiece piece){
+        ArrayList<String> s = new ArrayList<>();
+        int c = col+1;
+        int r = row+1;
+        while (true){
+            if(label.getBoard().checkChess(c, r)) {
+                s.add("" + r + " " + c);
+                c ++;
+                r ++;
+            } else
+            if(label.getBoard().checkChessColor(c, r,piece)) {
+                s.add(""+r+" "+c);
+                break;
+            } else break;
+        }
+
+        return s;
+    }
+
+    private ArrayList<String> movingDiagonallyBackAndRight(ChessPiece piece){
+        ArrayList<String> s = new ArrayList<>();
+        int c = col+1;
+        int r = row-1;
+        while (true){
+            if(label.getBoard().checkChess(c, r)) {
+                s.add("" + r + " " + c);
+                c ++;
+                r --;
+            } else
+            if(label.getBoard().checkChessColor(c, r,piece)) {
+                s.add(""+r+" "+c);
+                break;
+            } else break;
+        }
+
+        return s;
+    }
+    private ArrayList<String> movingDiagonallyBackAndLeft(ChessPiece piece){
+        ArrayList<String> s = new ArrayList<>();
+        int c = col-1;
+        int r = row-1;
+        while (true){
+            if(label.getBoard().checkChess(c, r)) {
+                s.add("" + r + " " + c);
+                c --;
+                r --;
+            } else
+            if(label.getBoard().checkChessColor(c, r,piece)) {
+                s.add(""+r+" "+c);
+                break;
+            } else break;
+        }
+        return s;
+    }
+
+
 }
